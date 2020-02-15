@@ -1,0 +1,55 @@
+<p *ngIf="!isDataLoaded; else showMap">Loading data...(takes up to 10s)</p>
+<ng-template #showMap>
+  <div class='my-legend'>
+    <div class='legend-title'>Nakład pracy</div>
+    <div class='legend-scale'>
+      <ul class='legend-labels'>
+        <li><span style='background:white;'></span>0 min</li>
+        <li><span style='background:#4ca135;'></span>30 min</li>
+        <li><span style='background:#86b32e;'></span>1h</li>
+        <li><span style='background:#e0d236;'></span>2h</li>
+        <li><span style='background:#e08e36;'></span>4h</li>
+        <li><span style='background:#e04736;'></span>10h</li>
+      </ul>
+    </div>
+  </div>
+  <div class="map">
+    <svg height="1000" width="1300">
+        <g svg-polygon *ngFor="let item of polygons | keyvalue: returnZero" [polygon]="item.value" [ngClass]="getClass(item.key)"
+            (click)="changeEstimatedWork($event, item.key)">
+        </g>
+        <g svg-circle *ngFor="let item of circles | keyvalue: returnZero" [circle]="item.value" [ngClass]="getClass(item.key)"
+            (click)="changeEstimatedWork($event, item.key)">
+        </g>
+        <g svg-text
+          [x]="1150" [y]="650">Pozostalo {{(workHours / 60) | floor}}h i {{workHours % 60}}min pracy</g> 
+    </svg>
+    <div class="talk-bubble tri-right border" [ngClass]="{'btm-right-in':chatBubble.slider.visibilityState==='hidden','btm-right-in2':chatBubble.slider.visibilityState==='visible', 'btm-right-in3':chatBubble.slider.visibilityState==='initiallyHidden' }" 
+      [@sliderHiddenVisible]="chatBubble.slider.visibilityState" 
+      [style.top.px]="chatBubble.top" 
+      [style.left.px]="chatBubble.left" 
+      [style.visibility]="chatBubble.visibility">
+      <div class="talktext">
+        <p>{{objectName}}</p>
+        <p>{{(singleEffort / 60) | floor}}h {{singleEffort % 60}}min</p>
+      </div>
+      <button mat-raised-button (click)="toggleSlider()">
+        <mat-icon *ngIf="chatBubble.slider.visibilityState=='visible'; else done">done</mat-icon>
+        <ng-template #done>Zmień</ng-template>
+      </button>
+      <button mat-raised-button (click)="resetObjectWorkHours()">Zresetuj</button>
+      <mat-slider [@hiddenVisible]="chatBubble.slider.visibilityState" [style.display]="chatBubble.slider.display" [ngClass]="{'disableAnimation':isAnimationDisabled}" (change)="getSliderValue($event)"
+            disabled="false"
+            invert="false"
+            max="10"
+            min="0"
+            step="0.25"
+            thumbLabel="true"
+            tickInterval="4"
+            [value]="chatBubble.slider.value"
+            vertical="false">
+      </mat-slider>
+    </div>
+  </div>
+</ng-template>
+

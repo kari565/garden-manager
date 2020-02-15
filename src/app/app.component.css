@@ -1,0 +1,228 @@
+p {
+  margin: 6px;
+  line-height: 20px;
+}
+
+svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 0;
+}
+
+.active :first-child {
+  fill: black;
+}
+
+.darkGreen :first-child {
+  fill: white;
+}
+
+.green :first-child {
+  fill: #4ca135;
+}
+
+.lightGreen :first-child {
+  fill: #86b32e;
+}
+
+.yellow :first-child {
+  fill: #e0d236;
+}
+
+.orange :first-child {
+  fill: #e08e36;
+}
+
+.red :first-child {
+  fill: #e04736;
+}
+
+polygon :hover, circle :hover, .darkGreen :hover, .green :hover, .lightGreen :hover, .yellow :hover, .orange :hover, .red :hover {
+  fill: #dddddd;
+}
+
+.map {
+  margin-top: 145px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+  width: 1300px;
+  height: 1000px;
+}
+
+.talk-bubble {
+  display: block;
+  padding: 8px;
+  position: relative;
+  width: auto; 
+  height: auto;
+  background-color: lightyellow;
+  max-width: 240px;
+  min-width: 150px;
+  max-height: 200px;
+  min-height: 80px;
+  visibility: hidden;
+  margin: 0 auto;
+}
+
+.border{
+  border: 1px solid #666;
+}
+
+.tri-right.border.btm-right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 143px;
+	right: auto;
+	bottom: -22px;
+  border: 11px solid;
+  opacity: 1;
+  border-color: #666 #666 transparent transparent;
+  animation: fadeIn 0.4s ease-in;
+} 
+
+.tri-right.border.btm-right-in2:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 143px;
+	right: auto;
+	bottom: -22px;
+  border: 11px solid;
+  opacity: 0;
+  border-color: #666 #666 transparent transparent;
+  animation: fadeOut 0.1s ease-out;
+}
+
+.tri-right.border.btm-right-in3:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 143px;
+	right: auto;
+	bottom: -22px;
+  border: 11px solid;
+  border-color: #666 #666 transparent transparent;
+}
+
+.tri-right.btm-right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 140px;
+	right: auto;
+	bottom: -20px;
+  border: 12px solid;
+  opacity: 1;
+  border-color: lightyellow lightyellow transparent transparent;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.tri-right.btm-right-in2:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 140px;
+	right: auto;
+	bottom: -20px;
+  border: 12px solid;
+  opacity: 0;
+  border-color: lightyellow lightyellow transparent transparent;
+  animation: fadeOut 0.1s ease-out;
+}
+
+.tri-right.btm-right-in3:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: 140px;
+	right: auto;
+	bottom: -20px;
+  border: 12px solid;
+  border-color: lightyellow lightyellow transparent transparent;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.talktext{
+    padding: 1em;
+    text-align: left;
+    line-height: 1.5em;
+  }
+
+.talktext p{
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+.mat-slider-horizontal {
+  width: 300px;
+  opacity: 0;
+}
+
+.disableAnimation *{
+  transition: none !important;
+}
+
+ button[mat-raised-button] {
+  margin-right: 8px;
+}
+
+.my-legend {
+  position: relative;
+  top: 60px;
+  margin-left: 100px;
+}
+
+.my-legend .legend-title {
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.my-legend .legend-scale ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  padding: 0 25px;
+}
+
+.my-legend .legend-scale ul li {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: 80%;
+  list-style: none;
+}
+
+.my-legend ul.legend-labels li span {
+  display: block;
+  position: relative;
+  float: left;
+  height: 15px;
+  width: 50px;
+  left: -25px;
+  border: 1px solid #888888;
+}
