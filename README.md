@@ -2,7 +2,7 @@
 
 The application can be used for graphical managment of workload in particular garden.
 
-## Working copy:
+## Deployed application:
 https://gardener-atalante.herokuapp.com/
 
 ## Technologies
